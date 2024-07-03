@@ -1,0 +1,17 @@
+<p>APR</p>
+<p><%= sprintf("%.4f", params.fetch("apr").to_f) %>%</p>
+<p>Number of years</p>
+<%= params.fetch("years").to_i %>
+<p>Principal</p>
+<p>$<%= sprintf("%.2f", params.fetch("principal").to_f) %></p>
+
+<p>Payment</p>
+
+<% r = (params.fetch("apr").to_f/100)/12 %>
+<% n = params.fetch("years").to_i * 12 %>
+<% numerator = r * params.fetch("principal").to_f %>
+<% denominator = 1 - ((1 + r) ** -n) %>
+
+<p><%= (numerator / denominator).to_fs(:currency) %></p>
+
+<a href="/payment/new">Calculate another payment</a>

@@ -1,0 +1,11 @@
+<h1>Square Root Results</h1>
+
+<div>
+  <p>Number</p>
+  <%= params.fetch("number").to_i %>
+  <p>Square Root</p>
+  <%= Math.sqrt(params.fetch("number").to_f).to_f%>
+</div>
+<div>
+  <a href="/square_root/new">Calculate another square</a>
+</div>
